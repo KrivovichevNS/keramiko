@@ -16,10 +16,10 @@ app.use(cors({
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(process.env.PWD, 'public')))
+app.use(express.static(path.join(process.env.PWD, 'public')));
 
-app.use('/', mainRouter);
-app.use('/product', productRouter);
+app.use('/api', mainRouter);
+app.use('/api/products', productRouter);
 
 app.listen(PORT, async () => {
   /* eslint-disable no-console */

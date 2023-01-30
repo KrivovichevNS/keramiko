@@ -8,7 +8,7 @@ module.exports = {
         salePrice: 0,
         img: '/img/photo_2023-01-25 16.14.33 (1).jpeg',
         number: 4,
-        category: 'чашки',
+        category_id: 13,
       },
       {
         name: 'Ваза',
@@ -17,7 +17,25 @@ module.exports = {
         salePrice: 2000,
         img: '/img/photo_2023-01-25 16.14.29.jpeg',
         number: 2,
-        category: 'вазы',
+        category_id: 15,
+      },
+      {
+        name: 'Подсвечник',
+        info: 'красивая хороший подсвечник белого цвета авторская задумка ',
+        price: 500,
+        salePrice: 0,
+        img: '/img/photo_2023-01-25 16.14.31.jpeg',
+        number: 10,
+        category_id: 16,
+      },
+      {
+        name: 'Тарелка',
+        info: 'красивая хорошая тарелка непонятного цвета глазурь ',
+        price: 1000,
+        salePrice: 700,
+        img: '/tarelka.jpeg',
+        number: 7,
+        category_id: 14,
       },
     ];
     const products = productData.map((product) => ({
