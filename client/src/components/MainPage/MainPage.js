@@ -11,7 +11,7 @@ const MainPage = () => {
                     Авторская керамика, сделанная своими руками
                 </Col>
                 <Col xs={6} md={4} className='silver'>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 </Col>
             </Row>
 

@@ -15,7 +15,8 @@ const NB = () => {
   return (
     <Navbar bg="*" expand="lg" className={styles.nb}>
       <Container>
-        <Navbar.Brand href="#" className={styles.nbPh}>
+        <LinkContainer to="/">
+        <Navbar.Brand to="/" className={styles.nbPh}>
           <img
             src="/img/photo_2023-01-25 16.14.24.jpeg"
             width="70"
@@ -23,7 +24,10 @@ const NB = () => {
             className="d-inline-block align-top"
             alt="" />
         </Navbar.Brand>
-        <Navbar.Brand href="#">Keramiko</Navbar.Brand>
+        </LinkContainer>
+        <LinkContainer to="/">
+        <Navbar.Brand>Keramiko</Navbar.Brand>
+        </LinkContainer>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
