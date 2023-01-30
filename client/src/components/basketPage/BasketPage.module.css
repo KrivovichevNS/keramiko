@@ -2,31 +2,34 @@
     padding-top: 30px;
 }
 
-.list img {
-    width: 50px;
+.miniimg {
+    width: 70px;
     height: 50px;
-    border-radius: 30px;
-    border: solid black;
+    border-radius: 10px;
+    /* border: solid black; */
 }
 
-.li {
+.imgtable {
+    display: flex;
+    justify-content: center;
+}
+
+/* .li {
     display: flex;
     align-items: center;
     background-color: white;
     border-color: white;
-}
+} */
 
 .cont {
     display: flex;
     padding: 30px;
     margin-bottom: 30px;
     margin-top: 30px;
-    border: 1px solid black;
     border-radius: 40px;
     justify-content: center;
 }
 
-.total {
-    display: flex;
-    align-self:flex-end;
+.basketTable {
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
