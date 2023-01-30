@@ -4,6 +4,7 @@ import Navbar from './components/navBar/NB';
 import { Routes, Route } from 'react-router-dom';
 import StorePage from './components/storePage/StorePage';
 import BasketPage from './components/basketPage/BasketPage';
+import MainPage from './components/MainPage/MainPage';
 
 function App() {
 
@@ -12,7 +13,7 @@ function App() {
         <Navbar />
         <div className='container'>
           <Routes>
-            <Route path='*' element/>
+            <Route path='*' element={<MainPage />}/>
             <Route path='/store' element={<StorePage />}>
               <Route path='/store/:category' element={<StorePage />} />
             </Route>
