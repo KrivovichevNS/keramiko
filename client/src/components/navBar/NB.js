@@ -27,9 +27,9 @@ const NB = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            {/* <LinkContainer> */}
+            <LinkContainer to="/">
             <Nav.Link href="#">Главная</Nav.Link>
-            {/* </LinkContainer> */}
+            </LinkContainer>
             <LinkContainer to="/store/all">
               <Nav.Link href="#features">Магазин</Nav.Link>
             </LinkContainer>
