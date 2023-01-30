@@ -1,0 +1,16 @@
+
+.products { 
+    padding-top: 50px;
+    border: 1px;
+}
+
+.products img { 
+    height: 250px;
+    border-radius: 5px;
+}
+
+/* .products { 
+    border: 1px;
+} */
+
+

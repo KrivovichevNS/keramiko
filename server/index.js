@@ -1,7 +1,9 @@
 require('dotenv').config();
+const path = require('path');
 const express = require('express');
 const cors = require('cors');
 const mainRouter = require('./routes/mainRouter');
+const productRouter = require('./routes/productRouter');
 const { sequelize } = require('./db/models');
 
 const app = express();
@@ -14,8 +16,10 @@ app.use(cors({
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.join(process.env.PWD, 'public')));
 
-app.use('/', mainRouter);
+app.use('/api', mainRouter);
+app.use('/api/products', productRouter);
 
 app.listen(PORT, async () => {
   /* eslint-disable no-console */
