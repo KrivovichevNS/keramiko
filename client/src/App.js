@@ -5,6 +5,7 @@ import { Routes, Route } from 'react-router-dom';
 import StorePage from './components/storePage/StorePage';
 import BasketPage from './components/basketPage/BasketPage';
 import ProductPage from './components/storePage/products/ProductPage/ProductPage';
+import MainPage from './components/MainPage/MainPage';
 
 function App() {
 
@@ -18,6 +19,10 @@ function App() {
             <Route path='/store/:category' element={<StorePage />} />
           </Route>
           <Route path='/product/:id' element={<ProductPage />} />
+          <Route path='*' element={<MainPage />} />
+          {/* <Route path='/store' element={<StorePage />}> */}
+          <Route path='/store/:category' element={<StorePage />} />
+          {/* </Route> */}
           <Route path='/cart' element={<BasketPage />} />
         </Routes>
       </div>

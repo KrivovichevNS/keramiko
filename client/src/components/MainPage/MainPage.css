@@ -1,0 +1,30 @@
+.gridContainer {
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding-bottom: 50px;
+}
+
+.blue{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    padding-bottom: 5px;
+}
+
+.silver {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    font-size: 20px;
+}
+
+.gold {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    font-size: 20px;
+}
+
+.purple {
+}

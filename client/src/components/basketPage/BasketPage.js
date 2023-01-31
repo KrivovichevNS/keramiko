@@ -1,5 +1,4 @@
-// import React, { useEffect, useRef } from 'react'
-import { Container, Col, Row, ListGroup } from 'react-bootstrap'
+import { Container, Col, Row, ListGroup, Table } from 'react-bootstrap'
 import styles from './BasketPage.module.css'
 import { useSelector } from 'react-redux'
 import {
@@ -15,7 +14,7 @@ const BasketPage = () => {
             <Row className="justify-content-md-center">
                 <Col xs lg="2">
                 </Col>
-                <Col md="auto">Корзина</Col>
+                <Col md="auto"><h1 className={styles.basketTable}>Ваш заказ:</h1></Col>
                 <Col xs lg="2">
                 </Col>
             </Row>
@@ -23,23 +22,37 @@ const BasketPage = () => {
                 <Container className={styles.cont}>
                     {basket.length ? <TriggerExample /> : null}
                     {basket.length
-                        ? <ListGroup className={styles.list}>
-                            {basket?.map((el, i) =>
-                                <ListGroup key={i} horizontal='sm' className={styles.li}>
-                                    <ListGroup.Item className={styles.li}>{i + 1}.</ListGroup.Item>
-                                    <ListGroup.Item className={styles.li}><img src={el.img} alt=''></img></ListGroup.Item>
-                                    <ListGroup.Item className={styles.li}>{el.name}</ListGroup.Item>
-                                    <ListGroup.Item className={styles.li}>{el.info}</ListGroup.Item>
-                                    <ListGroup.Item className={styles.li}>{el.price}₽</ListGroup.Item>
-                                    {/* <ListGroup.Item className={styles.li}>{el.number}</ListGroup.Item> */}
-                                </ListGroup>
-                            )}
-                            <ListGroup horizontal='sm' className={styles.total}>
-                                <ListGroup.Item className={styles.li}>Total price</ListGroup.Item>
-                                <ListGroup.Item className={styles.li}>{totalPrice}₽</ListGroup.Item>
-                            </ListGroup>
-                        </ListGroup>
-                        : <div>В корзине нет товаров</div>}
+                        ?
+                        <Table striped bordered hover>
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Наименование</th>
+                                    <th>Фото</th>
+                                    <th>Описание</th>
+                                    <th>Цена</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {basket?.map((el, i) =>
+                                    <tr key={i}>
+                                        <td>{i + 1}</td>
+                                        <td className={styles.imgtable}><img className={styles.miniimg} src={el.img} alt=''></img></td>
+                                        <td>{el.name}</td>
+                                        <td>{el.info}</td>
+                                        <td>{el.price}₽</td>
+                                    </tr>
+                                )}
+                                <tr>
+                                    <td>₽</td>
+                                    <td colSpan={3}>Итоговая сумма</td>
+                                    <td>{totalPrice}₽</td>
+                                </tr>
+                            </tbody>
+                        </Table>
+
+
+                        : <div className={styles.noProducts}>В корзине нет товаров</div>}
                 </Container>
             </Row>
         </Container>
