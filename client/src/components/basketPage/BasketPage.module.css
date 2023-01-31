@@ -1,55 +1,56 @@
-.list {
-    padding-top: 30px;
-}
-
 .miniimg {
     width: 40px;
     height: 40px;
-    border-radius: 30px;
+    border-radius: 5px;
     /* border: solid black; */
 }
 
 .imgtable {
     display: flex;
     text-align: center;
-    /* justify-content: center; */
 }
 
-/* .li {
-    display: flex;
-    align-items: center;
-    background-color: white;
-    border-color: white;
-} */
+.imgtable {
+    display: inline-block;
+    overflow: hidden;
+    /* Скрываем всё за контуром */
+}
+
+.imgtable .miniimg {
+    transition: 1s;
+    /* Время эффекта */
+    display: block;
+}
+
+.imgtable .miniimg:hover {
+    position: absolute;
+    transform: scale(2.5);
+    /* Увеличиваем масштаб */
+}
 
 .cont {
+    background: white;
     display: flex;
     padding: 30px;
     margin-bottom: 30px;
     margin-top: 30px;
     border-radius: 40px;
     justify-content: center;
+    border: 1px solid black;
 }
 
+
+
 .basketTable {
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .table {
     border: none;
     border: solid white;
-    background-color: white;
     align-items: center;
+    cursor: pointer;
 }
-
-/* th {
-text-align: center;
+.table:hover {
+    color: blue
 }
-
-td {
-    text-align: center;
-}
-
-tr {
-    text-align: center;
-} */

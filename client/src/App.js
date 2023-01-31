@@ -14,10 +14,10 @@ function App() {
       <Navbar />
       <div className='container'>
         <Routes>
-          <Route path='*' element />
-          <Route path='/store' element={<StorePage />}>
+          <Route path='*' element={<MainPage />} />
+          {/* <Route path='/store' element={<StorePage />}> */}
             <Route path='/store/:category' element={<StorePage />} />
-          </Route>
+          {/* </Route> */}
           <Route path='/product/:id' element={<ProductPage />} />
           <Route path='*' element={<MainPage />} />
           {/* <Route path='/store' element={<StorePage />}> */}
