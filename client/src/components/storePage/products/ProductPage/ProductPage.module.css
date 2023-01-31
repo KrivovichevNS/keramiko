@@ -1,4 +1,11 @@
 .container {
     display: flex;
     align-items: center;
+    justify-content: center;
+    padding-bottom: 30px;
+}
+
+.container img {
+    width: 450px;
+    height: 525px;
 }

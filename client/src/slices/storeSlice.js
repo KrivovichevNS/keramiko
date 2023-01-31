@@ -4,6 +4,7 @@ const initialState = {
     products: [],
     categories: [],
     basket: [],
+    oneProduct: '',
 }
 
 export const loadProducts = createAsyncThunk(
@@ -16,6 +17,14 @@ export const loadProducts = createAsyncThunk(
             const data = await fetch(`/api/products/${category}`)
             return data.json()
         }
+    }
+)
+
+export const loadProduct = createAsyncThunk(
+    'loadProduct',
+    async (id) => {
+        const data = await fetch(`/api/products/product/${id}`)
+        return data.json()
     }
 )
 
@@ -55,6 +64,10 @@ const storeSlice = createSlice({
             .addCase(loadCategories.fulfilled, (state, action) => {
                 state.categories = action.payload
             })
+            .addCase(loadProduct.fulfilled, (state, action) => {
+                console.log(action.payload, 'PAYLOAD IN SLICE');
+                state.oneProduct = action.payload
+            })
     }
 
 })
@@ -63,4 +76,5 @@ export const { filterProducts, setBasket, clearBasket, sliceBasket } = storeSlic
 export const selectProducts = state => state.store.products
 export const selectCategories = state => state.store.categories
 export const selectBasket = state => state.store.basket
+export const selectOneProduct = state => state.store.oneProduct
 export default storeSlice.reducer

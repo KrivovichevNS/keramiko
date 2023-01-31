@@ -19,7 +19,7 @@ function TriggerExampleProduct({ id }) {
             delay={{ show: 250, hide: 400 }}
             overlay={renderTooltip}
         >
-            <FontAwesomeIcon icon={faTrash} onClick={() => dispatch(sliceBasket(id))}/>
+            <FontAwesomeIcon style={{}} icon={faTrash} onClick={() => dispatch(sliceBasket(id))} />
         </OverlayTrigger>
     );
 }

@@ -10,6 +10,7 @@ import {
   useDispatch, useSelector,
 } from 'react-redux';
 import AddTooltip from '../Tooltips/AddTooltip';
+import { LinkContainer } from 'react-router-bootstrap';
 
 
 const Product = ({ prdct }) => {
@@ -34,7 +35,9 @@ const Product = ({ prdct }) => {
       <Card className={styles.card}>
         <Card.Img variant="top" src={prdct.img} className={styles.img} />
         <Card.Body >
-          <Card.Title>{prdct.name}</Card.Title>
+          <LinkContainer to={`/product/${prdct.id}`}>
+          <Card.Title className={styles.cardtitle}>{prdct.name}</Card.Title>
+          </LinkContainer>
           <Card.Text className={styles.text}>
             {prdct.info}
           </Card.Text>
@@ -44,15 +47,15 @@ const Product = ({ prdct }) => {
         <Card.Footer className={styles.footer}>
           {prdct.number !== 0
             ? checkBasket(prdct.id)
-            ? <AddTooltip />
-            : <>
-              <FontAwesomeIcon
-                id={prdct.id}
-                className={styles.icon}
-                icon={faCirclePlus} size="xl"
-                onClick={() => dispatch(setBasket(prdct))} />
-              <p>В корзину </p>
-            </>
+              ? <AddTooltip />
+              : <>
+                <FontAwesomeIcon
+                  id={prdct.id}
+                  className={styles.icon}
+                  icon={faCirclePlus} size="xl"
+                  onClick={() => dispatch(setBasket(prdct))} />
+                <p>В корзину </p>
+              </>
             : <div>Нет в наличии 😟</div>
           }
         </Card.Footer>
