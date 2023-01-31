@@ -40,9 +40,6 @@ const storeSlice = createSlice({
         setBasket: (state, action) => {
             state.basket.push(action.payload)
         },
-        deleteFromBasket: (state, action) => {
-            state.basket = state.basket.filter(prdct => prdct !== action.payload.id)
-        },
         clearBasket: (state, action) => {
             state.basket = []
         },
@@ -62,7 +59,7 @@ const storeSlice = createSlice({
 
 })
 
-export const { filterProducts, setBasket, deleteFromBasket, clearBasket, sliceBasket } = storeSlice.actions
+export const { filterProducts, setBasket, clearBasket, sliceBasket } = storeSlice.actions
 export const selectProducts = state => state.store.products
 export const selectCategories = state => state.store.categories
 export const selectBasket = state => state.store.basket
