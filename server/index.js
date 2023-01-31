@@ -9,6 +9,9 @@ const { sequelize } = require('./db/models');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+const buildDir = path.join('..', 'client', 'build');
+app.use(express.static(buildDir));
+
 app.use(cors({
   credentials: true,
   origin: true,
@@ -20,6 +23,10 @@ app.use(express.static(path.join(process.env.PWD, 'public')));
 
 app.use('/api', mainRouter);
 app.use('/api/products', productRouter);
+
+app.get('*', (req, res) => {
+  res.redirect('/');
+});
 
 app.listen(PORT, async () => {
   /* eslint-disable no-console */
