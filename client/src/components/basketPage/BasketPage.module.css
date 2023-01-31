@@ -3,15 +3,16 @@
 }
 
 .miniimg {
-    width: 70px;
-    height: 50px;
-    border-radius: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 30px;
     /* border: solid black; */
 }
 
 .imgtable {
     display: flex;
-    justify-content: center;
+    text-align: center;
+    /* justify-content: center; */
 }
 
 /* .li {
@@ -33,3 +34,22 @@
 .basketTable {
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
+
+.table {
+    border: none;
+    border: solid white;
+    background-color: white;
+    align-items: center;
+}
+
+/* th {
+text-align: center;
+}
+
+td {
+    text-align: center;
+}
+
+tr {
+    text-align: center;
+} */

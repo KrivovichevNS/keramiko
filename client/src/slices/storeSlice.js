@@ -45,6 +45,10 @@ const storeSlice = createSlice({
         },
         clearBasket: (state, action) => {
             state.basket = []
+        },
+        sliceBasket: (state, action) => {
+            console.log('slice!!!');
+            state.basket = state.basket.filter(el => el.id !== action.payload)
         }
     },
     extraReducers: (builder) => {
@@ -59,7 +63,7 @@ const storeSlice = createSlice({
 
 })
 
-export const { filterProducts, setBasket, deleteFromBasket, clearBasket } = storeSlice.actions
+export const { filterProducts, setBasket, deleteFromBasket, clearBasket, sliceBasket } = storeSlice.actions
 export const selectProducts = state => state.store.products
 export const selectCategories = state => state.store.categories
 export const selectBasket = state => state.store.basket

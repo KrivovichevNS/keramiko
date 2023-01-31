@@ -1,10 +1,11 @@
-import { Container, Col, Row, ListGroup, Table } from 'react-bootstrap'
+import { Container, Col, Row, Table } from 'react-bootstrap'
 import styles from './BasketPage.module.css'
 import { useSelector } from 'react-redux'
 import {
     selectBasket,
 } from '../../slices/storeSlice';
 import TriggerExample from './Tooltip';
+import TriggerExampleProduct from './TooltipProduct';
 
 const BasketPage = () => {
     const basket = useSelector(selectBasket)
@@ -23,29 +24,32 @@ const BasketPage = () => {
                     {basket.length ? <TriggerExample /> : null}
                     {basket.length
                         ?
-                        <Table striped bordered hover>
+                        <Table hover size='sm'>
                             <thead>
                                 <tr>
-                                    <th>#</th>
-                                    <th>Наименование</th>
-                                    <th>Фото</th>
-                                    <th>Описание</th>
-                                    <th>Цена</th>
+                                    <th>№</th>
+                                    <th></th>
+                                    <th>Товар</th>
+                                    {/* <th></th> */}
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {basket?.map((el, i) =>
-                                    <tr key={i}>
-                                        <td>{i + 1}</td>
+                                    <tr key={i} className={styles.table}>
+                                        <td>{i + 1}.</td>
                                         <td className={styles.imgtable}><img className={styles.miniimg} src={el.img} alt=''></img></td>
                                         <td>{el.name}</td>
-                                        <td>{el.info}</td>
+                                        {/* <td>{el.info}</td> */}
                                         <td>{el.price}₽</td>
+                                        <td>
+                                            <TriggerExampleProduct id={el.id}/>
+                                        </td>
+
                                     </tr>
                                 )}
-                                <tr>
-                                    <td>₽</td>
-                                    <td colSpan={3}>Итоговая сумма</td>
+                                <tr className={styles.table}>
+                                    <td colSpan={3}>Итоговая сумма:</td>
                                     <td>{totalPrice}₽</td>
                                 </tr>
                             </tbody>
