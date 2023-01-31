@@ -10,10 +10,10 @@ export const loadProducts = createAsyncThunk(
     'loadProducts',
     async (category) => {
         if (category === 'all') {
-            const data = await fetch('http://localhost:1717/api/products')
+            const data = await fetch('/api/products')
             return data.json()
         } else {
-            const data = await fetch(`http://localhost:1717/api/products/${category}`)
+            const data = await fetch(`/api/products/${category}`)
             return data.json()
         }
     }
@@ -22,7 +22,7 @@ export const loadProducts = createAsyncThunk(
 export const loadCategories = createAsyncThunk(
     'loadCategories',
     async () => {
-        const data = await fetch('http://localhost:1717/api/products/allcat')
+        const data = await fetch('/api/products/allcat')
         return data.json()
     }
 )
