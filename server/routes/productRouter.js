@@ -20,6 +20,16 @@ productRouter.get('/allcat', async (req, res) => {
   }
 });
 
+productRouter.get('/product/:id', async (req, res) => {
+  const { id } = req.params.id;
+  const currentProduct = await Product.findOne({
+    where: {
+      id,
+    },
+  });
+  res.json({ message: currentProduct });
+});
+
 productRouter.get('/:category', async (req, res) => {
   try {
     const categoryId = await Category.findOne({
