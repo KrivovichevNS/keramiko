@@ -47,7 +47,6 @@ const storeSlice = createSlice({
             state.basket = []
         },
         sliceBasket: (state, action) => {
-            console.log('slice!!!');
             state.basket = state.basket.filter(el => el.id !== action.payload)
         }
     },

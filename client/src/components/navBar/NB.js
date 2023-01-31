@@ -28,20 +28,20 @@ const NB = () => {
         <LinkContainer to="/">
         <Navbar.Brand>Keramiko</Navbar.Brand>
         </LinkContainer>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Toggle aria-controls="basic-navbar-nav" className={styles.navbarPie}/>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <LinkContainer to="/">
-            <Nav.Link href="#">Главная</Nav.Link>
+            <Nav.Link className={styles.href} href="#">Главная</Nav.Link>
             </LinkContainer>
             <LinkContainer to="/store/all">
-              <Nav.Link href="#features">Магазин</Nav.Link>
+              <Nav.Link className={styles.href} href="#features">Магазин</Nav.Link>
             </LinkContainer>
             {/* <LinkContainer> */}
-            <Nav.Link href="#">Мастер классы</Nav.Link>
+            <Nav.Link className={styles.href} href="#">Мастер классы</Nav.Link>
             {/* </LinkContainer> */}
             {/* <LinkContainer> */}
-            <Nav.Link href="#">Обо мне</Nav.Link>
+            <Nav.Link className={styles.href} href="#">Обо мне</Nav.Link>
             {/* </LinkContainer> */}
           </Nav>
           <LinkContainer to="/cart">

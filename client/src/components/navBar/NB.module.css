@@ -7,7 +7,16 @@
     align-content: space-between;
 }
 
+.href {
+    font-size: 25px;
+}
+
 .nbContainer {
     background-color:white;
     /* border-bottom: 1px solid black; */
+}
+
+.navbarPie {
+    display: flex;
+    align-content: space-between;
 }
