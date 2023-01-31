@@ -4,15 +4,30 @@ import { Card, Col } from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCirclePlus } from '@fortawesome/free-solid-svg-icons'
 import {
-  setBasket,
+  setBasket, selectBasket
 } from '../../../../slices/storeSlice';
 import {
-  useDispatch,
+  useDispatch, useSelector,
 } from 'react-redux';
+import AddTooltip from '../Tooltips/AddTooltip';
 
 
 const Product = ({ prdct }) => {
   const dispatch = useDispatch()
+  const basket = useSelector(selectBasket)
+
+  const checkBasket = (id) => {
+    if (basket.length === 0) {
+      return false
+    }
+    const index = basket.findIndex(e => e.id === id)
+    if (index !== -1) {
+      return true
+    }
+    return false
+  }
+
+
 
   return (
     <Col>
@@ -24,15 +39,22 @@ const Product = ({ prdct }) => {
             {prdct.info}
           </Card.Text>
           <Card.Text>{prdct.price}₽</Card.Text>
+          {/* <small className="text-muted" style={{ padding: "0", margin: "0" }}>В наличии: {prdct.number} шт.</small> */}
         </Card.Body>
         <Card.Footer className={styles.footer}>
-          <FontAwesomeIcon
-            id={prdct.id}
-            className={styles.icon}
-            icon={faCirclePlus} size="xl"
-            onClick={() =>  dispatch(setBasket(prdct))}
-          />
-          В корзину
+          {prdct.number !== 0
+            ? checkBasket(prdct.id)
+            ? <AddTooltip />
+            : <>
+              <FontAwesomeIcon
+                id={prdct.id}
+                className={styles.icon}
+                icon={faCirclePlus} size="xl"
+                onClick={() => dispatch(setBasket(prdct))} />
+              <p>В корзину </p>
+            </>
+            : <div>Нет в наличии 😟</div>
+          }
         </Card.Footer>
       </Card>
     </Col>

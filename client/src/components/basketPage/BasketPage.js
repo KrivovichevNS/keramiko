@@ -43,9 +43,8 @@ const BasketPage = () => {
                                         {/* <td>{el.info}</td> */}
                                         <td>{el.price}₽</td>
                                         <td>
-                                            <TriggerExampleProduct id={el.id}/>
+                                            <TriggerExampleProduct id={el.id} />
                                         </td>
-
                                     </tr>
                                 )}
                                 <tr className={styles.table}>
