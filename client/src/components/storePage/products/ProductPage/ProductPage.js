@@ -14,6 +14,7 @@ const ProductPage = () => {
     const basket = useSelector(selectBasket)
     const { id } = useParams()
     const navigate = useNavigate()
+
     useEffect(() => {
         dispatch(loadProduct(id))
     }, [id, dispatch])
@@ -30,6 +31,9 @@ const ProductPage = () => {
     }
 
     return (
+        product?.error
+        ? <div>{product?.error}</div>
+        :
         <Container className={styles.container}>
             <Card>
                 <Card.Img variant="top" src={product.img} />
@@ -39,7 +43,7 @@ const ProductPage = () => {
                         {product.info}
                     </Card.Text>
                 </Card.Body>
-                <Card.Footer className={styles.footer}>
+                <Card.Footer>
                     {product.number !== 0
                         ? checkBasket(product.id)
                             ? <AddTooltip />

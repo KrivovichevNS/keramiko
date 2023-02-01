@@ -14,7 +14,7 @@ function AddTooltip({ id }) {
             delay={{ show: 250, hide: 400 }}
             overlay={renderTooltip}
         >
-            <div style={{ color: 'green'}}>Добавлено ✔</div>
+            <div style={{ color: 'green', textAlign: 'center'}}>Добавлено ✔</div>
         </OverlayTrigger>
     );
 }
