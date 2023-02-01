@@ -5,7 +5,7 @@ const initialState = {
     categories: [],
     basket: [],
     oneProduct: '',
-    order: '',
+    orderDone: '',
     orderError: '',
 }
 
@@ -38,24 +38,21 @@ export const loadCategories = createAsyncThunk(
     }
 )
 
-export const createOrder = createAsyncThunk(
-    'createOrder',
+export const createNewOrder = createAsyncThunk(
+    'createNewOrder',
     async (info) => {
         const response = await fetch('/api/order', {
             method: 'POST',
+            body: JSON.stringify({
+                info,
+            }),
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({
-                info,
-            })
         })
-        if (response.status >= 400) {
-            const { error } = await response.json();
-            throw error;
-        } else {
-            return response.json();
-        }
+        const data = await response.json()
+        // console.log(data);
+        return data;
     }
 )
 
@@ -77,6 +74,10 @@ const storeSlice = createSlice({
         },
         sliceBasket: (state, action) => {
             state.basket = state.basket.filter(el => el.id !== action.payload)
+        },
+        clearMessages: (state, action) => {
+            // state.orderError = ''
+            state.orderDone = ''
         }
     },
     extraReducers: (builder) => {
@@ -90,21 +91,20 @@ const storeSlice = createSlice({
             .addCase(loadProduct.fulfilled, (state, action) => {
                 state.oneProduct = action.payload
             })
-            .addCase(createOrder.rejected, (state, action) => {
-                state.orderError = action.error.message
-            })
-            .addCase(createOrder.fulfilled, (state, action) => {
-                state.order = action.payload
+
+            .addCase(createNewOrder.fulfilled, (state, action) => {
+                state.orderError = action.payload.error
+                state.orderDone = action.payload.message
             })
     }
 
 })
 
-export const { filterProducts, setBasket, clearBasket, sliceBasket } = storeSlice.actions
+export const { filterProducts, setBasket, clearBasket, sliceBasket, clearMessages } = storeSlice.actions
 export const selectProducts = state => state.store.products
 export const selectCategories = state => state.store.categories
 export const selectBasket = state => state.store.basket
 export const selectOneProduct = state => state.store.oneProduct
 export const selecetOrderError = state => state.store.orderError
-export const selectOrder = state => state.store.order
+export const selectOrderDone = state => state.store.orderDone
 export default storeSlice.reducer
