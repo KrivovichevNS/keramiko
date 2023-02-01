@@ -4,6 +4,7 @@ const express = require('express');
 const cors = require('cors');
 const mainRouter = require('./routes/mainRouter');
 const productRouter = require('./routes/productRouter');
+const orderRouter = require('./routes/orderRouter');
 const { sequelize } = require('./db/models');
 
 const app = express();
@@ -23,6 +24,7 @@ app.use(express.static(path.join(process.env.PWD, 'public')));
 
 app.use('/api', mainRouter);
 app.use('/api/products', productRouter);
+app.use('/api/order', orderRouter);
 
 app.get('*', (req, res) => {
   res.redirect('/');

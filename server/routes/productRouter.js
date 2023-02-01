@@ -21,13 +21,20 @@ productRouter.get('/allcat', async (req, res) => {
 });
 
 productRouter.get('/product/:id', async (req, res) => {
-  const { id } = req.params.id;
-  const currentProduct = await Product.findOne({
-    where: {
-      id,
-    },
-  });
-  res.json({ message: currentProduct });
+  try {
+    const currentProduct = await Product.findByPk(req.params.id);
+
+    if (!currentProduct) {
+      res.status(404);
+      res.json({ data: null, error: 'Упс, товар не найден 😕' });
+      return;
+    }
+
+    res.json(currentProduct);
+  } catch (error) {
+    res.status(500);
+    res.json({ data: null, error: error.message });
+  }
 });
 
 productRouter.get('/:category', async (req, res) => {
