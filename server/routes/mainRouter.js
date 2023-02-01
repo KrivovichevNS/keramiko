@@ -6,10 +6,9 @@ mainRouter.get('/', async (req, res) => {
     where: {
       name: 'Чашка',
     },
-    // include: Category;
+    include: Product.Category,
   });
-  const hisCategory = await cup.getCategory();
-  res.json({ cup, hisCategory });
+  res.json({ cup });
 });
 
 module.exports = mainRouter;
