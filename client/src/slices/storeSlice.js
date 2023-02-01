@@ -5,6 +5,8 @@ const initialState = {
     categories: [],
     basket: [],
     oneProduct: '',
+    order: '',
+    orderError: '',
 }
 
 export const loadProducts = createAsyncThunk(
@@ -33,6 +35,27 @@ export const loadCategories = createAsyncThunk(
     async () => {
         const data = await fetch('/api/products/allcat')
         return data.json()
+    }
+)
+
+export const createOrder = createAsyncThunk(
+    'createOrder',
+    async (info) => {
+        const response = await fetch('/api/order', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                info,
+            })
+        })
+        if (response.status >= 400) {
+            const { error } = await response.json();
+            throw error;
+        } else {
+            return response.json();
+        }
     }
 )
 
@@ -65,8 +88,13 @@ const storeSlice = createSlice({
                 state.categories = action.payload
             })
             .addCase(loadProduct.fulfilled, (state, action) => {
-                console.log(action.payload, 'PAYLOAD IN SLICE');
                 state.oneProduct = action.payload
+            })
+            .addCase(createOrder.rejected, (state, action) => {
+                state.orderError = action.error.message
+            })
+            .addCase(createOrder.fulfilled, (state, action) => {
+                state.order = action.payload
             })
     }
 
@@ -77,4 +105,6 @@ export const selectProducts = state => state.store.products
 export const selectCategories = state => state.store.categories
 export const selectBasket = state => state.store.basket
 export const selectOneProduct = state => state.store.oneProduct
+export const selecetOrderError = state => state.store.orderError
+export const selectOrder = state => state.store.order
 export default storeSlice.reducer

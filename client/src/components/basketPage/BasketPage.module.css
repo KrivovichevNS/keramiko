@@ -13,19 +13,16 @@
 .imgtable {
     display: inline-block;
     overflow: hidden;
-    /* Скрываем всё за контуром */
 }
 
 .imgtable .miniimg {
-    transition: 1s;
-    /* Время эффекта */
+    /* transition: 1s; */
     display: block;
 }
 
 .imgtable .miniimg:hover {
     position: absolute;
     transform: scale(2.5);
-    /* Увеличиваем масштаб */
 }
 
 .cont {
@@ -53,4 +50,12 @@
 }
 .table:hover {
     color: blue
+}
+
+.comment {
+    padding-bottom: 10px;
+}
+
+.accordion {
+    padding-bottom: 40px;
 }
