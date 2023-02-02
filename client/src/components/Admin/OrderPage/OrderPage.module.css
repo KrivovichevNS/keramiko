@@ -1,0 +1,12 @@
+/* .order {
+    cursor: pointer;
+} */
+
+.changeOrderStatus {
+    cursor: pointer;
+    padding-top: 10px;
+}
+
+.table {
+    border-bottom: solid black;
+}

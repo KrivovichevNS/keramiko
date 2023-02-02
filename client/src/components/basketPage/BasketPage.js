@@ -2,7 +2,7 @@ import styles from './BasketPage.module.css'
 import { Container, Col, Row, Table, Accordion, Form, Button, FloatingLabel } from 'react-bootstrap'
 import { useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { selectBasket, createNewOrder, selecetOrderError, clearMessages } from '../../slices/storeSlice';
+import { selectBasket, createNewOrder, selecetOrderError, clearMessages, selectOrderDone } from '../../slices/storeSlice';
 import TriggerExample from './Tooltip';
 import TriggerExampleProduct from './TooltipProduct';
 import { useNavigate } from 'react-router-dom';
@@ -11,6 +11,7 @@ import { useNavigate } from 'react-router-dom';
 const BasketPage = () => {
     const basket = useSelector(selectBasket)
     const error = useSelector(selecetOrderError)
+    const done = useSelector(selectOrderDone)
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const totalPrice = basket?.reduce((acc, el) => acc += +el.price, 0)
@@ -18,7 +19,7 @@ const BasketPage = () => {
     const phoneRef = useRef()
     const emailRef = useRef()
     const commentRef = useRef()
-
+    // console.log(error, done, 'ERERERERERE');
     const orderOk = () => {
         navigate('/success')
         dispatch(clearMessages())
@@ -115,7 +116,8 @@ const BasketPage = () => {
                                     <Button variant="primary" type="submit">
                                         Оформить заказ
                                     </Button>
-                                    {error ? <div style={{ background: 'red' }}>{error}</div> : orderOk()}
+                                    {error && <div style={{ background: 'red' }}>{error}</div>}
+                                    {done && orderOk()}
                                 </Form>
                             </Accordion.Body>
                         </Accordion.Item>
