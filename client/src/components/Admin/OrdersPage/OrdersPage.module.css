@@ -1,0 +1,12 @@
+.newOrdersBadge {
+    display: flex;
+    margin-left: 20px;
+}
+
+.tables {
+    border-bottom: solid black;
+}
+
+.tables tbody {
+    cursor: pointer;
+}

@@ -11,10 +11,12 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import storeSlice from './slices/storeSlice';
+import adminSlice from './slices/adminSlice';
 
 const rootReducer = combineReducers(
     {
         store: storeSlice,
+        admin: adminSlice,
     }
 )
 
