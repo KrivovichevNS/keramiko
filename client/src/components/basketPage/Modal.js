@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import styles from './Modal.module.css'
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { useDispatch } from 'react-redux';
@@ -14,11 +15,11 @@ function StaticExample() {
 
     return (
         <div
-            className="modal show"
+            className="modal"
             style={{ display: 'block', position: 'initial' }}
         >
-            <Modal.Dialog>
-                <Modal.Header closeButton>
+            <Modal.Dialog className={styles.modal}>
+                <Modal.Header>
                     <Modal.Title>Заказ успешно создан! 🎉</Modal.Title>
                 </Modal.Header>
 
@@ -26,9 +27,9 @@ function StaticExample() {
                     <p>Мы свяжемся с Вами в течении часа для уточнения деталей заказа 📲</p>
                 </Modal.Body>
 
-                <Modal.Footer>
-                    <Button variant="primary" onClick={() => navigate('/')}>На главную</Button>
-                    <Button variant="primary" onClick={() => navigate('/store/all')}>В магазин</Button>
+                <Modal.Footer className={styles.footer}>
+                    <Button className={styles.buttons} variant="light" onClick={() => navigate('/')}>На главную</Button>
+                    <Button className={styles.buttons} variant="light" onClick={() => navigate('/store/all')}>В магазин</Button>
                 </Modal.Footer>
             </Modal.Dialog>
         </div>

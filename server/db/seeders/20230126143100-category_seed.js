@@ -3,15 +3,19 @@ module.exports = {
     const categoryData = [
       {
         name: 'cups',
+        display_name: 'Чашки' 
       },
       {
         name: 'plates',
+        display_name: 'Тарелки'
       },
       {
         name: 'vase',
+        display_name: 'Вазы'
       },
       {
         name: 'other',
+        display_name: 'Прочее'
       },
     ];
     const categories = categoryData.map((category) => ({

@@ -10,3 +10,7 @@
 .tables tbody {
     cursor: pointer;
 }
+
+tbody {
+    cursor: pointer;
+}

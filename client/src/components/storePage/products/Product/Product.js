@@ -36,25 +36,19 @@ const Product = ({ prdct }) => {
         <Card.Img variant="top" src={prdct.img} className={styles.img} />
         <Card.Body >
           <LinkContainer to={`/product/${prdct.id}`}>
-          <Card.Title className={styles.cardtitle}>{prdct.name}</Card.Title>
+            <Card.Title className={styles.cardtitle}>{prdct.name}</Card.Title>
           </LinkContainer>
           <Card.Text className={styles.text}>
             {prdct.info}
           </Card.Text>
           <Card.Text>{prdct.price}₽</Card.Text>
-          {/* <small className="text-muted" style={{ padding: "0", margin: "0" }}>В наличии: {prdct.number} шт.</small> */}
         </Card.Body>
         <Card.Footer className={styles.footer}>
           {prdct.number !== 0
             ? checkBasket(prdct.id)
               ? <AddTooltip />
               : <>
-                <FontAwesomeIcon
-                  id={prdct.id}
-                  className={styles.icon}
-                  icon={faCirclePlus} size="xl"
-                  onClick={() => dispatch(setBasket(prdct))} />
-                <p>В корзину </p>
+                <p onClick={() => dispatch(setBasket(prdct))} className={styles.inBasket}>В корзину </p>
               </>
             : <div>Нет в наличии 😟</div>
           }

@@ -1,0 +1,9 @@
+.modal {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 20px;
+}
+
+.footer {
+display: flex;
+justify-content: space-around;
+}

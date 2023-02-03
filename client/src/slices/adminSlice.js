@@ -6,6 +6,7 @@ const initialState = {
     allOrders: '',
     order: '',
     orderStatus: '',
+    color: ''
 }
 
 export const adminLogin = createAsyncThunk(
@@ -26,15 +27,15 @@ export const adminLogin = createAsyncThunk(
 
 export const changeOrderStatus = createAsyncThunk(
     'changeOrderStatus',
-    async (id, status) => {
-        console.log(id, status, 'ID!!!!!!!!');
-        const data = await fetch(`/api/admin/order/${id}`, {
-            method: 'PATCH',
+    async (body) => {
+        console.log(body.status, 'ID!!!!!!!!');
+        const data = await fetch(`/api/admin/order/${body.id}`, {
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                orderStatus: status,
+                orderStatus: body.status,
             }),
         })
         return data.json()
@@ -90,7 +91,14 @@ const adminSlice = createSlice({
                 state.order = action.payload
             })
             .addCase(changeOrderStatus.fulfilled, (state, action) => {
-                state.order.status = action.payload
+                console.log(action.payload.message, 'payload');
+
+                if (action.payload.message === 'pending') state.color = 'primary'
+                if (action.payload.message === 'process') state.color = 'info'
+                if (action.payload.message === 'cancel') state.color = 'danger'
+                if (action.payload.message === 'done') state.color = 'success'
+
+                state.order.status = action.payload.message
             })
     }
 
@@ -101,4 +109,7 @@ export const selectAuthUser = state => state.admin.authUser
 export const selectLogout = state => state.admin.logout
 export const selectOrders = state => state.admin.allOrders
 export const selectOrder = state => state.admin.order
+export const selectStatus = state => state.admin.orderStatus
+export const selectColor = state => state.admin.color
+
 export default adminSlice.reducer

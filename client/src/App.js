@@ -10,6 +10,8 @@ import Modal from './components/basketPage/Modal';
 import LoginPage from './components/Admin/LoginPage/LoginPage';
 import AdminPage from './components/Admin/AdminPage/AdminPage';
 import OrderPage from './components/Admin/OrderPage/OrderPage';
+import MKpage from './components/MKpage/MKpage';
+import ContactPage from './components/ContactPage/ContactPage';
 
 function App() {
 
@@ -23,11 +25,10 @@ function App() {
           <Route path='/admin/login' element={<LoginPage />} />
           <Route path='/admin/control' element={<AdminPage />} />
           <Route path='/admin/order/:id' element={<OrderPage />} />
-          {/* <Route path='/store' element={<StorePage />}> */}
           <Route path='/store/:category' element={<StorePage />} />
-          {/* </Route> */}
           <Route path='/product/:id' element={<ProductPage />} />
-          <Route path='*' element={<MainPage />} />
+          <Route path='/mk' element={<MKpage />} />
+          <Route path='/contacts' element={<ContactPage />} />
           <Route path='/cart' element={<BasketPage />} />
         </Routes>
       </div>

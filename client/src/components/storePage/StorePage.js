@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import styles from './StorePage.module.css'
 import Products from './products/Products/Products'
 import {
     selectProducts,
@@ -27,7 +28,7 @@ const StorePage = () => {
     }, [dispatch])
 
     return (
-        <div >
+        <div className={styles.storeContainer}>
             <Products categories={categories} products={products} />
         </div>
     )

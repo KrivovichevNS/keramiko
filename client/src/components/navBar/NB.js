@@ -45,12 +45,12 @@ const NB = () => {
             <LinkContainer to="/store/all">
               <Nav.Link className={styles.href}>Магазин</Nav.Link>
             </LinkContainer>
-            {/* <LinkContainer> */}
-            <Nav.Link className={styles.href}>Мастер классы</Nav.Link>
-            {/* </LinkContainer> */}
-            {/* <LinkContainer> */}
-            <Nav.Link className={styles.href}>Обо мне</Nav.Link>
-            {/* </LinkContainer> */}
+            <LinkContainer to="/mk">
+            <Nav.Link className={styles.href}>МК</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to="/contacts">
+            <Nav.Link className={styles.href}>Контакты</Nav.Link>
+            </LinkContainer>
             {authUser?.authUser?.username
               ?
               <>
@@ -63,9 +63,11 @@ const NB = () => {
             }
           </Nav>
           <LinkContainer to="/cart">
-            <Nav.Link>
-              <FontAwesomeIcon icon={faBasketShopping} size="xl" />
-              <Badge bg="primary" pill className={styles.badge}>{basket.length}</Badge>
+            <Nav.Link className={styles.cart}>
+              <FontAwesomeIcon icon={faBasketShopping} size="2xl" />
+              <Badge bg="primary" className='"position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"'>
+                {basket.length}
+                </Badge>
             </Nav.Link>
           </LinkContainer>
         </Navbar.Collapse>

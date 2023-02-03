@@ -1,10 +1,12 @@
 .nb {
     width: 100%;
-    padding: 0;
+    padding-top: 20px;
+    padding-bottom: 0;
     margin-bottom: 30px;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     display: flex;
     align-content: space-between;
+    
 }
 
 .href {
@@ -19,4 +21,12 @@
 .navbarPie {
     display: flex;
     align-content: space-between;
+}
+
+.nbPh {
+    padding-left: 30px;
+}
+
+.cart {
+    padding-right: 30px;
 }

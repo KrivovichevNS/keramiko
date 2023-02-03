@@ -62,7 +62,7 @@ const OrdersPage = () => {
                         </thead>
                         <tbody>
                             {processedOrders.map(order =>
-                                <tr>
+                                <tr key={order.id} onClick={() => navigate(`/admin/order/${order.id}`)}>
                                     <td>{order.id}</td>
                                     <td>{order.customerName}</td>
                                     <td>{order.customerPhone}</td>
@@ -86,7 +86,7 @@ const OrdersPage = () => {
                         </thead>
                         <tbody>
                             {deliveredOrders.map(order =>
-                                <tr>
+                                <tr key={order.key} onClick={() => navigate(`/admin/order/${order.id}`)}>
                                     <td>{order.id}</td>
                                     <td>{order.customerName}</td>
                                     <td>{order.customerPhone}</td>
@@ -110,7 +110,7 @@ const OrdersPage = () => {
                         </thead>
                         <tbody>
                             {cancelOrders.map(order =>
-                                <tr>
+                                <tr key={order.key} onClick={() => navigate(`/admin/order/${order.id}`)}>
                                     <td>{order.id}</td>
                                     <td>{order.customerName}</td>
                                     <td>{order.customerPhone}</td>
