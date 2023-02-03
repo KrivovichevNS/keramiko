@@ -6,7 +6,7 @@ module.exports = {
         customerName: 'Валентин',
         customerEmail: '',
         comment: 'перезвоните пожалуйста, нужно уточнить пару вопросов по поводу товара',
-        totalPrice: '',
+        totalPrice: 0,
         status: 'cancel',
       },
       {
@@ -14,7 +14,7 @@ module.exports = {
         customerName: 'Алексей',
         customerEmail: '',
         comment: 'не звонить, писать в тг по номеру',
-        totalPrice: '',
+        totalPrice: 0,
         status: 'process',
       },
       {
@@ -22,7 +22,7 @@ module.exports = {
         customerName: 'Ирина',
         customerEmail: '',
         comment: 'хочу уточнить кол-во товара',
-        totalPrice: '',
+        totalPrice: 0,
         status: 'process',
       },
       {
@@ -30,7 +30,7 @@ module.exports = {
         customerName: 'Юлия',
         customerEmail: '',
         comment: 'не звонить до 19.00',
-        totalPrice: '',
+        totalPrice: 0,
         status: 'process',
       },
       {
@@ -38,7 +38,7 @@ module.exports = {
         customerName: 'Олег',
         customerEmail: '',
         comment: 'нужно три таких',
-        totalPrice: '',
+        totalPrice: 0,
         status: 'cancel',
       },
       {
@@ -46,7 +46,7 @@ module.exports = {
         customerName: 'Иван',
         customerEmail: '',
         comment: '',
-        totalPrice: '',
+        totalPrice: 0,
         status: 'cancel',
       },
       {
@@ -54,7 +54,7 @@ module.exports = {
         customerName: 'Анастасия',
         customerEmail: '',
         comment: 'Хочу забрать сегодня',
-        totalPrice: '',
+        totalPrice: 0,
         status: 'pending',
       },
       {
@@ -62,7 +62,7 @@ module.exports = {
         customerName: 'Игорь',
         customerEmail: '',
         comment: 'не звонить, занят. Свяжусь сам',
-        totalPrice: '',
+        totalPrice: 0,
         status: 'done',
       },
       {
@@ -70,7 +70,7 @@ module.exports = {
         customerName: 'Анна',
         customerEmail: '',
         comment: '',
-        totalPrice: '',
+        totalPrice: 0,
         status: 'done',
       },
       {
@@ -78,12 +78,17 @@ module.exports = {
         customerName: 'Виктор',
         customerEmail: '',
         comment: 'перезвоните пожалуйста',
-        totalPrice: '',
+        totalPrice: 0,
         status: 'done',
       },
     ];
     const orders = order.map((o) => ({
-      ...category,
+      customerPhone: o.customerPhone ,
+        customerName: o.customerName,
+        customerEmail: o.customerEmail,
+        comment: o.comment,
+        totalPrice: o.totalPrice,
+        status: o.status,
       createdAt: new Date(),
       updatedAt: new Date(),
     }));

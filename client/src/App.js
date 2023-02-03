@@ -22,8 +22,8 @@ function App() {
         <Routes>
           <Route path='*' element={<MainPage />} />
           <Route path='/success' element={<Modal />} />
+          <Route path='/admin' element={<AdminPage />} />
           <Route path='/admin/login' element={<LoginPage />} />
-          <Route path='/admin/control' element={<AdminPage />} />
           <Route path='/admin/order/:id' element={<OrderPage />} />
           <Route path='/store/:category' element={<StorePage />} />
           <Route path='/product/:id' element={<ProductPage />} />

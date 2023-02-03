@@ -7,6 +7,7 @@ import LoginPage from '../LoginPage/LoginPage';
 
 const AdminPage = () => {
   const authUser = useSelector(selectAuthUser)
+  
   return (
     authUser.authUser
       ? <AdminMenuPage />

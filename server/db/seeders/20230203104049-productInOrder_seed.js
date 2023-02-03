@@ -91,7 +91,7 @@ module.exports = {
       },
     ];
     const op = PROD.map((o) => ({
-      ...category,
+      ...o,
       createdAt: new Date(),
       updatedAt: new Date(),
     }));

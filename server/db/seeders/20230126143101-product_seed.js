@@ -155,6 +155,7 @@ module.exports = {
         category_id: 1,
       },
     ];
+
     const products = productData.map((product) => ({
       ...product,
       createdAt: new Date(),
