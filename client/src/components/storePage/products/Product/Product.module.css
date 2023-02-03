@@ -9,6 +9,11 @@
     cursor: pointer;
 }
 
+.img {
+    max-width: 250px;
+    min-height: 300px;
+}
+
 .card {
     border: none;
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
@@ -29,4 +34,12 @@
 
 .cardtitle {
     cursor: pointer;
+}
+
+.footer {
+    background: none;
+}
+
+.inBasket {
+cursor: pointer;
 }

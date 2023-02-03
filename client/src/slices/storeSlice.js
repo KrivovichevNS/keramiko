@@ -76,8 +76,13 @@ const storeSlice = createSlice({
             state.basket = state.basket.filter(el => el.id !== action.payload)
         },
         clearMessages: (state, action) => {
-            // state.orderError = ''
             state.orderDone = ''
+        },
+        clearError: (state, action) => {
+            state.orderError = ''
+        },
+        clearOneProduct: (state, action) => {
+            state.oneProduct = ''
         }
     },
     extraReducers: (builder) => {
@@ -100,7 +105,7 @@ const storeSlice = createSlice({
 
 })
 
-export const { filterProducts, setBasket, clearBasket, sliceBasket, clearMessages } = storeSlice.actions
+export const { filterProducts, setBasket, clearBasket, sliceBasket, clearMessages, clearError, clearOneProduct } = storeSlice.actions
 export const selectProducts = state => state.store.products
 export const selectCategories = state => state.store.categories
 export const selectBasket = state => state.store.basket

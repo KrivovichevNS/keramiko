@@ -1,8 +1,8 @@
 import styles from './BasketPage.module.css'
 import { Container, Col, Row, Table, Accordion, Form, Button, FloatingLabel } from 'react-bootstrap'
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { selectBasket, createNewOrder, selecetOrderError, clearMessages, selectOrderDone } from '../../slices/storeSlice';
+import { selectBasket, createNewOrder, selecetOrderError, clearMessages, selectOrderDone, clearError } from '../../slices/storeSlice';
 import TriggerExample from './Tooltip';
 import TriggerExampleProduct from './TooltipProduct';
 import { useNavigate } from 'react-router-dom';
@@ -17,7 +17,6 @@ const BasketPage = () => {
     const totalPrice = basket?.reduce((acc, el) => acc += +el.price, 0)
     const nameRef = useRef()
     const phoneRef = useRef()
-    const emailRef = useRef()
     const commentRef = useRef()
     // console.log(error, done, 'ERERERERERE');
     const orderOk = () => {
@@ -25,12 +24,18 @@ const BasketPage = () => {
         dispatch(clearMessages())
     }
 
+    const errorType = error.split(' ')
+    console.log(errorType, 'errorororororo');
+
+    useEffect(() => {
+        dispatch(clearError())
+    }, [dispatch]) 
+
     const handleSubmit = (e) => {
         e.preventDefault()
         const orderData = {
             name: nameRef.current.value,
             phone: phoneRef.current.value,
-            email: emailRef.current.value,
             comment: commentRef.current.value,
             totalPrice,
             basket,
@@ -49,22 +54,22 @@ const BasketPage = () => {
             </Row>
             <Row>
                 <Container className={styles.cont}>
-                    {basket.length ? <TriggerExample /> : null}
+                    {/* {basket.length ? <TriggerExample /> : null} */}
                     {basket.length
                         ?
-                        <Table size='sm'>
+                        <Table size='sm' className={styles.table}>
                             <thead>
                                 <tr>
-                                    <th>№</th>
+                                    {/* <th>№</th> */}
                                     <th></th>
-                                    <th>Товар</th>
+                                    <th>Фото</th>
                                     {/* <th></th> */}
-                                    <th></th>
+                                    <th>Наименование</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 {basket?.map((el, i) => <tr className={styles.table} key={el.id}>
-                                    <td>{i + 1}.</td>
+                                    <td></td>
                                     <td colSpan={2} className={styles.imgtable}><img className={styles.miniimg} src={el.img} alt=''></img></td>
                                     <td onClick={() => navigate(`/product/${el.id}`)}>{el.name}</td>
                                     {/* <td>{el.info}</td> */}
@@ -74,10 +79,10 @@ const BasketPage = () => {
                                     </td>
                                 </tr>
                                 )}
-                                <tr className={styles.tableItog}>
-                                    <td colSpan={3}>Итоговая сумма:</td>
-                                    <td>{totalPrice}₽</td>
-                                    <td></td>
+                                <tr>
+                                    <td className={styles.tableItog} colSpan={3}>Итого:</td>
+                                    <td className={styles.tableItog}>{totalPrice}₽</td>
+                                    <td className={styles.tableItog}><TriggerExample /></td>
                                 </tr>
                             </tbody>
                         </Table>
@@ -85,38 +90,38 @@ const BasketPage = () => {
                 </Container>
                 {basket.length
                     ? <Accordion className={styles.accordion}>
-                        <Accordion.Item eventKey='0'>
+                        <Accordion.Item eventKey='0' className={styles.accBody} >
                             <Accordion.Header>Нажмите, чтобы оформить заказ</Accordion.Header>
-                            <Accordion.Body>
+                            <Accordion.Body >
                                 <Form method='POST' onSubmit={handleSubmit}>
                                     <Form.Group className="mb-3">
-                                        <Form.Label>ФИО</Form.Label>
-                                        <Form.Control placeholder="ФИО" autoComplete='off' ref={nameRef} />
+                                        <Form.Label>{errorType[1] === 'имя' ? <div style={{ color: 'red' }}>{error}</div> : 'Имя'}</Form.Label>
+                                        <Form.Control className={styles.accInput} autoComplete='off' ref={nameRef} />
                                     </Form.Group>
                                     <Form.Group className="mb-3">
-                                        <Form.Label>Телефон</Form.Label>
-                                        <Form.Control placeholder="Телефон" autoComplete='off' ref={phoneRef} />
+                                        <Form.Label>{errorType[1] === 'телефон' ? <div style={{ color: 'red' }}>{error}</div> : 'Телефон'}</Form.Label>
+                                        <Form.Control className={styles.accInput} autoComplete='off' ref={phoneRef} />
                                     </Form.Group>
                                     <Form.Group className="mb-3" controlId="formBasicEmail">
-                                        <Form.Label>Email</Form.Label>
+                                        {/* <Form.Label>Email</Form.Label>
                                         <Form.Control type="email" placeholder="Почта" autoComplete='off' ref={emailRef} />
                                         <Form.Text className="text-muted">
                                             Укажите email, если хотите получить подтверждение заказа на почту
-                                        </Form.Text>
+                                        </Form.Text> */}
                                     </Form.Group>
                                     <Form.Group className={styles.comment}>
                                         <FloatingLabel controlId="floatingTextarea2" label="Комментарий к заказу">
                                             <Form.Control
+                                                className={styles.accInput}
                                                 as="textarea"
                                                 autoComplete='off'
                                                 style={{ height: '100px' }}
                                                 ref={commentRef} />
                                         </FloatingLabel>
+                                        <Button variant="light" type="submit" className={styles.confirm}>
+                                            Оформить заказ
+                                        </Button>
                                     </Form.Group>
-                                    <Button variant="primary" type="submit">
-                                        Оформить заказ
-                                    </Button>
-                                    {error && <div style={{ background: 'red' }}>{error}</div>}
                                     {done && orderOk()}
                                 </Form>
                             </Accordion.Body>

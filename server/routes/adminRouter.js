@@ -14,22 +14,25 @@ adminRouter.get('/orders', async (req, res) => {
 })
 
 adminRouter.get('/order/:id', async (req, res) => {
-    const order = await Order.findByPk(req.params.id)
-    console.log(order, 'запрос залетел');
+    const order = await Order.findByPk(req.params.id, {
+        include: Order.Products,
+    })
     res.json(order)
 })
 
-// adminRouter.put('/order/:id', async (req, res) => {
-// console.log(req.body, 'REQ BODY!!!!!!!!!!!!!!!!!!!!!!!');
-//     // await Order.update({ status: req.params.id }, {
-//     //     where: {
-//     //       lastName: null
-//     //     }
-//     //   });
-// })
+adminRouter.put('/order/:id', async (req, res) => {
+    await Order.update(
+        {
+            status: req.body.orderStatus
+        },
+        {
+            where: { id: req.params.id }
+        });
+
+    res.json({ message: req.body.orderStatus })
+})
 
 adminRouter.post('/login', async (req, res) => {
-    console.log(req.body);
     const isLogin = Boolean(req.body.username);
     const isPassword = Boolean(req.body.password);
 

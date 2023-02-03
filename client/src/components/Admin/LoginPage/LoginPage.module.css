@@ -1,0 +1,16 @@
+.input {
+    border-radius: 0px;
+    border-top: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-color: black;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.submitButton {
+    align-self: center;
+}

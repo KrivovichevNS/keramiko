@@ -10,3 +10,89 @@
 .table {
     border-bottom: solid black;
 }
+
+.miniimg {
+    width: 40px;
+    height: 40px;
+    border-radius: 5px;
+    /* border: solid black; */
+}
+
+.imgtable {
+    display: flex;
+    text-align: center;
+}
+
+.cont {
+    background: white;
+    display: flex;
+    padding: 30px;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    border-radius: 40px;
+    justify-content: center;
+    /* border: 1px solid black; */
+}
+
+
+
+.basketTable {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.table {
+    border: none;
+    border: solid white;
+    align-items: center;
+}
+
+/* .table:hover {
+    color: blue
+} */
+
+.comment {
+    padding-bottom: 10px;
+}
+
+.accordion {
+    padding-bottom: 40px;
+}
+
+.accBody {
+    border: none;
+}
+
+.accInput {
+    border-radius: 0px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: solid black;
+}
+
+
+.confirm {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.tableItog {
+    padding-top: 20px;
+    border-bottom: none;
+    border-top: solid black;
+    font-weight: bolder;
+}
+
+.bor {
+    border-bottom: solid black;
+
+}
+
+.endButtons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.in { 
+    display: flex;
+    justify-content: first baseline;
+}

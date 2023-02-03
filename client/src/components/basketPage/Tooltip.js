@@ -12,13 +12,12 @@ function TriggerExample() {
     );
 
     return (
-        <OverlayTrigger
-            placement="right"
-            delay={{ show: 250, hide: 400 }}
-            overlay={renderTooltip}
-        >
-            <CloseButton onClick={() => dispatch(clearBasket())}/>
-        </OverlayTrigger>
+        // <OverlayTrigger
+        //     placement="bottom"
+        //     delay={{ show: 0, hide: 400 }}
+        //     overlay={renderTooltip}>
+        // </OverlayTrigger>
+            <div onClick={() => dispatch(clearBasket())}>Очистить корзину</div>
     );
 }
 

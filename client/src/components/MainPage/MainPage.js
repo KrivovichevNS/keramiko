@@ -6,60 +6,81 @@ const MainPage = () => {
     return (
         <Container className='gridContainer'>
             {/* Stack the columns on mobile by making one full-width and the other half-width */}
-            <Row>
+            <Row sm={1}>
                 <Col xs={12} md={8} className='blue'>
-                    Авторская керамика, сделанная своими руками
-                </Col>
-                <Col xs={6} md={4} className='silver'>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    <div>
+                        Авторская керамика, сделанная своими руками
+                    </div>
+                    <div className='small'>
+                        Каждое изделие  - результат тонкой ручной работы. Такие изделия несут в себе частичку особенной энергии, к которой может приобщиться любой ценитель прекрасного.
+                    </div>
                 </Col>
             </Row>
 
             {/* Columns start at 50% wide on mobile and bump up to 33.3% wide on desktop */}
-            <Row>
+            <Row sm={1}>
                 <Col xs={6} md={4} style={{ size: '100%' }}>
-                    <Carousel fade>
+                    <Carousel interval={6000} fade indicators={false} controls={false}>
                         <Carousel.Item>
                             <img
                                 className="d-block w-100"
-                                src="/img/photo_2023-01-27 11.35.56.jpeg"
+                                src="/img/mainVaza.jpg"
                                 alt=''
                             />
                         </Carousel.Item>
                         <Carousel.Item>
                             <img
                                 className="d-block w-100"
-                                src="/img/photo_2023-01-27 11.36.09.jpeg"
+                                src="/img/mainCup.jpg"
                                 alt=""
                             />
                         </Carousel.Item>
                     </Carousel>
                 </Col>
-                <Col xs={6} md={4} className='gold'>
-                    Керамика, вдохновлённая природными фактурами и оттенками. Важная составляющая- это тактильные поверхности, которые создают особые ощущения, когда держишь изделия в руках. Многие цветовые сочетания и фактуры вдохновлены русскими северными пейзажами и состояниями. Каждое изделие  - результат тонкой ручной работы. Такие изделия несут в себе частичку особенной энергии, к которой может приобщиться любой ценитель прекрасного.
-                </Col>
-                <Col xs={6} md={4} className='purple'>
-                    <Carousel fade>
+                <Col xs={6} md={4} className='silver'>
+                    <Carousel interval={6000} fade indicators={false} controls={false} >
                         <Carousel.Item>
                             <img
                                 className="d-block w-100"
-                                src="/img/photo_2023-01-25 16.14.30.jpeg"
+                                src="/img/mainCups2.jpg"
+                                alt=""
+                            />
+                        </Carousel.Item>
+                        <Carousel.Item>
+                            <img
+                                className="d-block w-100"
+                                src="/img/mainCups.jpeg"
+                                alt=''
+                            />
+                        </Carousel.Item>
+                    </Carousel>
+                </Col>
+                <Col xs={6} md={4} xxl={4} className='purple'>
+                    <Carousel interval={6000} fade indicators={false} controls={false} >
+                        <Carousel.Item>
+                            <img
+                                className="d-block w-100"
+                                src="/img/mainVaza1.jpg"
                                 alt=''
                             />
                         </Carousel.Item>
                         <Carousel.Item>
                             <img
                                 className="d-block w-100"
-                                src="/img/photo_2023-01-25 16.14.34.jpeg"
+                                src="/img/mainCup1.jpg"
                                 alt=""
                             />
                         </Carousel.Item>
-                    </Carousel>                </Col>
+                    </Carousel>
+                </Col>
             </Row>
             {/* Columns are always 50% wide, on mobile and desktop */}
         </Container>
 
     )
+
+    // Керамика, вдохновлённая природными фактурами и оттенками. Важная составляющая- это тактильные поверхности, которые создают особые ощущения, когда держишь изделия в руках. Многие цветовые сочетания и фактуры вдохновлены русскими северными пейзажами и состояниями. Каждое изделие  - результат тонкой ручной работы. Такие изделия несут в себе частичку особенной энергии, к которой может приобщиться любой ценитель прекрасного.
+
 }
 
 export default MainPage
