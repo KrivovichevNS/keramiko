@@ -42,16 +42,16 @@ const ProductPage = () => {
             :
             <Container className={styles.container1}>
                 <Card className={styles.card}>
-                    <Card.Img variant="top" src={product.img} className={styles.img} />
+                    <Card.Img variant="top" src={product?.img} className={styles.img} />
                     <Card.Body >
-                        <Card.Title >{product.name}</Card.Title>
+                        <Card.Title >{product?.name}</Card.Title>
                         <Card.Text >
-                            {product.info}
+                            {product?.info}
                         </Card.Text>
-                        <Card.Text>{product.price}₽</Card.Text>
+                        <Card.Text>{product?.price}₽</Card.Text>
                     </Card.Body>
                     <Card.Footer className={styles.footer}>
-                        {product.number !== 0
+                        {product?.number !== 0
                             ? checkBasket(product.id)
                                 ? <>
                                     <AddTooltip />
