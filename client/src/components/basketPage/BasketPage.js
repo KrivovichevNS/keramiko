@@ -24,7 +24,7 @@ const BasketPage = () => {
         dispatch(clearMessages())
     }
 
-    const errorType = error.split(' ')
+    const errorType = error?.split(' ')
     console.log(errorType, 'errorororororo');
 
     useEffect(() => {

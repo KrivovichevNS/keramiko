@@ -54,7 +54,7 @@ const NB = () => {
             {authUser?.authUser?.username
               ?
               <>
-                <LinkContainer to="/admin/control">
+                <LinkContainer to="/admin">
                   <Nav.Link className={styles.href}>Управление</Nav.Link>
                 </LinkContainer>
                 <Nav.Link className={styles.href} onClick={handleLogout}>Выход</Nav.Link>
