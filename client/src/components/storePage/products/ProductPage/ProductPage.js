@@ -52,7 +52,7 @@ const ProductPage = () => {
                     </Card.Body>
                     <Card.Footer className={styles.footer}>
                         {product?.number !== 0
-                            ? checkBasket(product.id)
+                            ? checkBasket(product?.id)
                                 ? <>
                                     <AddTooltip />
                                     <p onClick={() => navigate(-1)} className={styles.inBasket}>Назад </p>
