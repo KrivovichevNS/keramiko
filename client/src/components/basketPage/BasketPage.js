@@ -25,7 +25,7 @@ const BasketPage = () => {
     }
 
     const errorType = error?.split(' ')
-    console.log(errorType, 'errorororororo');
+    
 
     useEffect(() => {
         dispatch(clearError())
@@ -95,11 +95,11 @@ const BasketPage = () => {
                             <Accordion.Body >
                                 <Form method='POST' onSubmit={handleSubmit}>
                                     <Form.Group className="mb-3">
-                                        <Form.Label>{errorType[1] === 'имя' ? <div style={{ color: 'red' }}>{error}</div> : 'Имя'}</Form.Label>
+                                        <Form.Label>{errorType ? errorType[1] === 'имя' ? <div style={{ color: 'red' }}>{error}</div> : 'Имя' : 'Имя'}</Form.Label>
                                         <Form.Control className={styles.accInput} autoComplete='off' ref={nameRef} />
                                     </Form.Group>
                                     <Form.Group className="mb-3">
-                                        <Form.Label>{errorType[1] === 'телефон' ? <div style={{ color: 'red' }}>{error}</div> : 'Телефон'}</Form.Label>
+                                        <Form.Label>{errorType ? errorType[1] === 'телефон' ? <div style={{ color: 'red' }}>{error}</div> : 'Телефон' : 'Телефон'}</Form.Label>
                                         <Form.Control className={styles.accInput} autoComplete='off' ref={phoneRef} />
                                     </Form.Group>
                                     <Form.Group className="mb-3" controlId="formBasicEmail">
